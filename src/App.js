@@ -1,22 +1,18 @@
+import { useContext } from 'react';
 import Loading from './core/components/Loading';
 import { Home } from './product/components/Home';
 
-import {
-	ProductContextProvider,
-	ProductContext,
-} from './product/context/ProductContextProvider';
+import { ProductContext } from './product/context/ProductContextProvider';
 
 export const App = () => {
-	return (
-		<ProductContextProvider>
-			<ProductContext.Consumer>
-				{({ loading }) => {
-					if (loading) return <Loading />;
+	const { loading, error } = useContext(ProductContext);
 
-					return <Home />;
-				}}
-			</ProductContext.Consumer>
-		</ProductContextProvider>
+	return (
+		<>
+			{loading && <Loading />}
+			{error && <p> {JSON.stringify(error)} </p>}
+			{!loading && !error && <Home />};
+		</>
 	);
 };
 

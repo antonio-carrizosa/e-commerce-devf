@@ -19,7 +19,7 @@ class AxiosClient {
 
 			AxiosClient.instance = this;
 		}
-		return this;
+		return AxiosClient.instance;
 	}
 
 	async get({ path, queryParams }) {

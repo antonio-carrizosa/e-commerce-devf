@@ -1,9 +1,16 @@
+import { useNavigate } from 'react-router-dom';
 import './css/product-item.css';
 import defaultImg from '../../assets/img/default.png';
 
 export const ProductItem = ({ product }) => {
+	const navigate = useNavigate();
+
+	const handleOnTap = () => {
+		navigate(`/details/${product.id}`);
+	};
+
 	return (
-		<div className='product-item'>
+		<div onClick={handleOnTap} className='product-item'>
 			<img src={product.image || defaultImg} alt='' />
 
 			<div className='details'>

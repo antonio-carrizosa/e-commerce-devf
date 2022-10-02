@@ -6,13 +6,13 @@ import { ProductList } from './ProductList';
 
 export const Home = () => {
 	const { products } = useContext(ProductContext);
-	const { filteredProducts, search } = useSearch({ initialData: products });
+	const { filteredData, search } = useSearch(products);
 
 	return (
 		<div className='main'>
 			<Nabvar search={term => search(term, 'product_name')} />
 			<div className='content'>
-				<ProductList products={filteredProducts} />
+				<ProductList products={filteredData} />
 			</div>
 		</div>
 	);

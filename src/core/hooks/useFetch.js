@@ -17,6 +17,7 @@ const useFetch = ({ method = 'GET', path, data, queryParams }) => {
 	};
 
 	useEffect(() => {
+		console.log('use Effect Fetch', method, path);
 		const axiosClient = new AxiosClient();
 
 		if (method == 'GET') {

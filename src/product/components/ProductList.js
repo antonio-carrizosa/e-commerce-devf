@@ -7,7 +7,7 @@ export const ProductList = ({ products }) => {
 			<div className='product-list'>
 				{!products.length && <h4> No results.</h4>}
 				{products.map((product, idx) => (
-					<ProductItem key={idx} product={product} />
+					<ProductItem key={idx} product={{ ...product, id: product._id }} />
 				))}
 			</div>
 		</>
