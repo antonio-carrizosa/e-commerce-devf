@@ -13,6 +13,7 @@ module.exports = {
 		'eslint:recommended',
 		'plugin:react/recommended',
 		'plugin:react/jsx-runtime',
+		'eslint-config-prettier',
 	],
 	overrides: [],
 	parserOptions: {
@@ -21,6 +22,7 @@ module.exports = {
 	},
 	plugins: ['react'],
 	rules: {
+		'react/prop-types': 'off',
 		indent: ['error', 'tab'],
 		'linebreak-style': ['error', 'unix'],
 		quotes: ['error', 'single'],

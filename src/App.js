@@ -1,9 +1,23 @@
-function App() {
+import Loading from './core/components/Loading';
+import { Home } from './product/components/Home';
+
+import {
+	ProductContextProvider,
+	ProductContext,
+} from './product/context/ProductContextProvider';
+
+export const App = () => {
 	return (
-		<div>
-			<h1> App </h1>
-		</div>
+		<ProductContextProvider>
+			<ProductContext.Consumer>
+				{({ loading }) => {
+					if (loading) return <Loading />;
+
+					return <Home />;
+				}}
+			</ProductContext.Consumer>
+		</ProductContextProvider>
 	);
-}
+};
 
 export default App;

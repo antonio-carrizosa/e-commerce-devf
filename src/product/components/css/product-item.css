@@ -1,0 +1,19 @@
+.product-item {
+	margin: 4px;
+	width: 200px;
+	height: 270px;
+	background-color: #256d85;
+	border-radius: 5px;
+	text-align: center;
+	overflow: hidden;
+}
+
+.product-item img {
+	width: 100%;
+	height: 150px;
+	object-fit: cover;
+	border-radius: 5px 5px 0 0;
+}
+.product-item .details {
+	padding: 8px;
+}
