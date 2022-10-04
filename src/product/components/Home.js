@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { ProductContext } from '../context/ProductContextProvider';
 import { useSearch } from '../hooks/useSearch';
-import { Nabvar } from './Nabvar';
+import { Nabvar } from './../../core/components/Nabvar';
 import { ProductList } from './ProductList';
 
 export const Home = () => {

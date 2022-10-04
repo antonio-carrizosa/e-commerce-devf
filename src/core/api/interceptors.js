@@ -1,3 +1,5 @@
+const API_TOKEN = 'token';
+
 const logRequestInterceptor = request => {
 	console.log('------REQUEST------');
 	const { baseURL, url, method } = request;
@@ -16,7 +18,33 @@ const logResponseInterceptor = response => {
 	return response;
 };
 
+const authRequestInterceptor = request => {
+	const storage = localStorage;
+
+	// if token exists, add to headers
+	const token = storage.getItem(API_TOKEN);
+	if (token) {
+		const headers = request.headers;
+		request.headers = { ...headers, Authorization: `JWT ${token}` };
+	}
+	return request;
+};
+
+const authResponseInterceptor = response => {
+	// if token comes we proced to save it
+	if (response.status == 200 && response.data.token) {
+		// extract token and return response without token to presentation layer
+		const { token, ...rest } = response.data;
+		const storage = localStorage;
+		storage.setItem(API_TOKEN, token);
+		response.data = rest;
+	}
+	return response;
+};
+
 export {
-	logRequestInterceptor as logRequestIncertceptor,
-	logResponseInterceptor as logResponseIncertceptor,
+	authRequestInterceptor,
+	authResponseInterceptor,
+	logRequestInterceptor,
+	logResponseInterceptor,
 };

@@ -1,8 +1,6 @@
 import { useState } from 'react';
 
 export const useSearch = initialData => {
-	console.log({ initialData });
-
 	const [filteredData, setFilteredData] = useState(initialData || []);
 
 	const search = (term = '', field) => {

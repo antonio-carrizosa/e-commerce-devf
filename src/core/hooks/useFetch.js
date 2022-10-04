@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import AxiosClient from '../api/axiosClient';
 
-const useFetch = ({ method = 'GET', path, data, queryParams }) => {
-	const [loading, setLoading] = useState(true);
-	const [responseData, setResponseData] = useState([]);
+const useFetch = ({ path, queryParams }) => {
+	const [loading, setLoading] = useState(path ? true : false);
+	const [data, setData] = useState(null);
 	const [error, setError] = useState(null);
 
 	const handleSuccess = data => {
-		setResponseData(data);
+		setData(data);
 		setLoading(false);
 	};
 
@@ -17,22 +17,18 @@ const useFetch = ({ method = 'GET', path, data, queryParams }) => {
 	};
 
 	useEffect(() => {
-		console.log('use Effect Fetch', method, path);
 		const axiosClient = new AxiosClient();
-
-		if (method == 'GET') {
-			axiosClient
-				.get({ path, queryParams })
-				.then(handleSuccess)
-				.catch(handleError);
-		}
-
-		if (method == 'POST') {
-			axiosClient.post({ path, data }).then(handleSuccess).catch(handleError);
-		}
+		axiosClient
+			.get({ path, queryParams })
+			.then(handleSuccess)
+			.catch(handleError);
 	}, []);
 
-	return { loading, data: responseData, error };
+	return {
+		loading,
+		data,
+		error,
+	};
 };
 
 export default useFetch;
