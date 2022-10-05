@@ -42,7 +42,6 @@ class AxiosClient {
 		try {
 			if (!data) throw Error('Required data');
 			if (!Object.keys(data).length) throw Error('Required data');
-			console.log('data axios', data);
 			const response = await this.instance.post(path, data);
 			return response.data;
 		} catch (error) {
@@ -51,6 +50,7 @@ class AxiosClient {
 	}
 
 	handleError(error) {
+		// axios documentation
 		if (error.response) {
 			throw error.response.data.message;
 		} else if (error.request) {

@@ -30,7 +30,7 @@ export const SignIn = () => {
 			console.log({ user });
 			signIn(user);
 			setLoading(false);
-			navigate('/');
+			navigate('/', { replace: true });
 		} catch (error) {
 			setLoading(false);
 			Swal.fire({
@@ -41,6 +41,8 @@ export const SignIn = () => {
 			});
 		}
 	};
+
+	const loader = <div className='loader'> </div>;
 
 	return (
 		<div className='form-wrapper'>
@@ -62,11 +64,7 @@ export const SignIn = () => {
 					value={password}
 					required
 				/>
-				{loading ? (
-					<div> Loading... </div>
-				) : (
-					<button type='submit'> Sign In </button>
-				)}
+				<button type='submit'> {loading ? loader : 'Sign In'} </button>
 			</form>
 		</div>
 	);
