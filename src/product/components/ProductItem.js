@@ -6,7 +6,7 @@ export const ProductItem = ({ product }) => {
 	const navigate = useNavigate();
 
 	const handleOnTap = () => {
-		navigate(`/details/${product.id}`);
+		navigate(`/products/${product.id}`);
 	};
 
 	return (

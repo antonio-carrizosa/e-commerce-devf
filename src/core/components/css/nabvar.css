@@ -59,3 +59,28 @@ nav .authenticated span:hover {
 	color: #47b5ff;
 	/* font-weight: bold; */
 }
+
+.results {
+	position: absolute;
+	background-color: black;
+	top: 55px;
+	width: 100vw;
+	padding: 16px 0;
+	max-height: 250px;
+	color: white;
+	overflow-y: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+}
+
+.results .item {
+	width: 100%;
+	padding: 8px 0;
+	cursor: pointer;
+	text-align: center;
+}
+
+.results .item:hover {
+	background-color: #256d85;
+}

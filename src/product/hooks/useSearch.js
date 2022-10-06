@@ -1,11 +1,11 @@
 import { useState } from 'react';
 
 export const useSearch = initialData => {
-	const [filteredData, setFilteredData] = useState(initialData || []);
+	const [filteredData, setFilteredData] = useState([]);
 
 	const search = (term = '', field) => {
 		if (!term.length) {
-			setFilteredData(initialData);
+			setFilteredData([]);
 			return;
 		}
 
@@ -16,6 +16,9 @@ export const useSearch = initialData => {
 		});
 		setFilteredData(filteredData);
 	};
+	const clear = () => {
+		setFilteredData([]);
+	};
 
-	return { filteredData, search };
+	return { filteredData, search, clear };
 };

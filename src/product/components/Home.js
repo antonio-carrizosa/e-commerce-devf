@@ -1,30 +1,16 @@
 import { useContext } from 'react';
-import { useNavigate } from 'react-router-dom';
-import { UserContext } from '../../auth/context/UserContextProvider';
-import { ProductContext } from '../context/ProductContextProvider';
-import { useSearch } from '../hooks/useSearch';
-import { Nabvar } from './../../core/components/Nabvar';
+import Loading from '../../core/components/Loading';
+import { ProductContext } from '../../product/context/ProductContextProvider';
 import { ProductList } from './ProductList';
 
 export const Home = () => {
-	const navigate = useNavigate();
-
-	const { products } = useContext(ProductContext);
-	const { filteredData, search } = useSearch(products);
-	const { user } = useContext(UserContext);
+	const { loading, error } = useContext(ProductContext);
 
 	return (
-		<div className='main'>
-			<Nabvar search={term => search(term, 'product_name')} />
-			<div className='content'>
-				<ProductList products={filteredData} />
-			</div>
-			{/* null aware operator */}
-			{user?.isAdmin && (
-				<div onClick={() => navigate('/create')} className='floating-btn'>
-					+
-				</div>
-			)}
-		</div>
+		<>
+			{loading && <Loading />}
+			{error && <p> {JSON.stringify(error)} </p>}
+			{!loading && !error && <ProductList />};
+		</>
 	);
 };
