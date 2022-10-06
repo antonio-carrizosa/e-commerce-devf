@@ -44,6 +44,7 @@ export const SignUp = () => {
 				text: 'User registered',
 				icon: 'success',
 				confirmButtonText: 'OK',
+				confirmButtonColor: '#256d85',
 			});
 
 			navigate('/signIn', { replace: true });
@@ -54,6 +55,7 @@ export const SignUp = () => {
 				text: JSON.stringify(error),
 				icon: 'error',
 				confirmButtonText: 'OK',
+				confirmButtonColor: '#256d85',
 			});
 		}
 	};

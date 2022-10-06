@@ -11,7 +11,8 @@ export const UserContextProvider = ({ children }) => {
 
 	const signIn = user => {
 		storage.setItem(USER, JSON.stringify(user));
-		setUser(user);
+		setUser({ ...user, isAdmin: user.role == 'ADMIN' });
+		console.log(user);
 	};
 
 	const signOut = () => {
@@ -23,8 +24,8 @@ export const UserContextProvider = ({ children }) => {
 	useEffect(() => {
 		const userData = storage.getItem(USER);
 		if (userData) {
-			setUser(JSON.parse(userData));
-			console.log(JSON.parse(userData));
+			const user = JSON.parse(userData);
+			setUser({ ...user, isAdmin: user.role == 'ADMIN' });
 		}
 	}, []);
 

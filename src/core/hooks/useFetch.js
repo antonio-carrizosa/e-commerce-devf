@@ -27,6 +27,7 @@ const useFetch = ({ path, queryParams }) => {
 	return {
 		loading,
 		data,
+		setData,
 		error,
 	};
 };

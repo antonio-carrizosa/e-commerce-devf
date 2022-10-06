@@ -2,10 +2,12 @@ const API_TOKEN = 'token';
 
 const logRequestInterceptor = request => {
 	console.log('------REQUEST------');
-	const { baseURL, url, method } = request;
+
+	const { baseURL, url, method, data } = request;
 	console.log('METHOD', method);
 	console.log('URL', baseURL + (url || ''));
-	console.log('------ ------');
+	console.log('DATA', data);
+	console.log('------------');
 	return request;
 };
 
@@ -14,15 +16,20 @@ const logResponseInterceptor = response => {
 	const { status, data } = response;
 	console.log('STATUS', status);
 	console.log('DATA', data);
-	console.log('------ ------');
+	console.log('------------');
 	return response;
 };
 
 const authRequestInterceptor = request => {
 	const storage = localStorage;
+	// const { url } = request;
+	// if (url.includes('/logout')) {
+	// 	storage.removeItem(API_TOKEN);
+	// }
 
 	// if token exists, add to headers
 	const token = storage.getItem(API_TOKEN);
+
 	if (token) {
 		const headers = request.headers;
 		request.headers = { ...headers, Authorization: `JWT ${token}` };

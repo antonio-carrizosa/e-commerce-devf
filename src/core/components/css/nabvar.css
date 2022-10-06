@@ -57,5 +57,5 @@ nav .authenticated span {
 
 nav .authenticated span:hover {
 	color: #47b5ff;
-	font-weight: bold;
+	/* font-weight: bold; */
 }

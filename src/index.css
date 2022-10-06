@@ -58,13 +58,50 @@ form {
 form input {
 	border-radius: 5px;
 	height: 35px;
-	margin-bottom: 8px;
 	padding: 0px 8px;
+	margin-bottom: 8px;
+}
+
+form textarea {
+	margin-bottom: 8px;
+	border-radius: 5px;
+	padding: 8px;
+	font-family: sans-serif;
 }
 
 form button {
 	margin-top: 16px;
 	width: 100%;
+}
+
+select {
+	border-radius: 5px;
+	height: 35px;
+	padding: 0px 8px;
+	margin-bottom: 8px;
+	font-family: sans-serif;
+	color: gray;
+	margin: 0;
+	padding: 0;
+}
+
+.select-wrapper {
+	cursor: pointer;
+	background-color: #256d85;
+	display: flex;
+	align-items: center;
+	padding-left: 8px;
+	height: 35px;
+	border-radius: 5px;
+	margin-bottom: 8px;
+}
+
+.select-wrapper select {
+	flex: 1;
+	margin-left: 8px;
+	border: none;
+	padding: 0 8px;
+	border-radius: 0 5px 5px 0;
 }
 
 .form-wrapper {
@@ -82,6 +119,14 @@ form button {
 
 .form-wrapper form h2 {
 	color: #256d85;
+}
+
+.form-wrapper img {
+	width: 40vw;
+	height: 25vh;
+	margin-bottom: 8px;
+	border-radius: 5px;
+	object-fit: cover;
 }
 
 .error {
@@ -133,6 +178,25 @@ form button {
 .date-input input {
 	border: none;
 	flex: 1;
+}
+
+.floating-btn {
+	position: absolute;
+	width: 50px;
+	height: 50px;
+	bottom: 50px;
+	right: 50px;
+	background-color: #256d85;
+	border-radius: 100px;
+	font-size: 35px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+}
+
+.floating-btn:hover {
+	background-color: #47b5ff;
 }
 
 /* UTILS */

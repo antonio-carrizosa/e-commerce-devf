@@ -6,6 +6,9 @@ import AxiosClient from '../../core/api/axiosClient';
 import { useForm } from '../../core/hooks/useForm';
 import { UserContext } from '../context/UserContextProvider';
 
+// Admin User admin@mail.com : 12345678
+// Customer User jhon_doe@mail.com : 12345678
+
 export const SignIn = () => {
 	const navigate = useNavigate();
 
@@ -27,7 +30,6 @@ export const SignIn = () => {
 			await axiosClient.post({ path: '/login', data: formValues });
 			// authRequest interceptor adds token to header
 			const { user } = await axiosClient.get({ path: '/user/me' });
-			console.log({ user });
 			signIn(user);
 			setLoading(false);
 			navigate('/', { replace: true });
@@ -38,6 +40,7 @@ export const SignIn = () => {
 				text: JSON.stringify(error),
 				icon: 'error',
 				confirmButtonText: 'OK',
+				confirmButtonColor: '#256d85',
 			});
 		}
 	};

@@ -13,7 +13,12 @@ export const Nabvar = ({ search }) => {
 
 	return (
 		<nav>
-			<h3>e-Commerce (React JS)</h3>
+			<h3>
+				{' '}
+				{user
+					? `${user.first_name} ${user.last_name}`
+					: 'e-Commerce (React JS)'}{' '}
+			</h3>
 
 			<div className='search-bar'>
 				<span>Search</span>
