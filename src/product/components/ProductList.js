@@ -29,7 +29,7 @@ export const ProductList = () => {
 					onClick={() => navigate('/products/create')}
 					className='floating-btn'
 				>
-					+
+					Add
 				</div>
 			)}
 		</div>

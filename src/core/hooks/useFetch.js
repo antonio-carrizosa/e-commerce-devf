@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import AxiosClient from '../api/axiosClient';
 
 const useFetch = ({ path, queryParams }) => {
-	const [loading, setLoading] = useState(path ? true : false);
+	const [loading, setLoading] = useState(true);
 	const [data, setData] = useState(null);
 	const [error, setError] = useState(null);
 
