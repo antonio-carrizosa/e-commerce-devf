@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/antonio-carrizosa/static/css/main.fabb33e2.css",
-    "main.js": "/antonio-carrizosa/static/js/main.326e81ca.js",
-    "index.html": "/antonio-carrizosa/index.html",
-    "main.fabb33e2.css.map": "/antonio-carrizosa/static/css/main.fabb33e2.css.map",
-    "main.326e81ca.js.map": "/antonio-carrizosa/static/js/main.326e81ca.js.map"
+    "main.css": "/antonio-carrizosa/e-commerce-devf/static/css/main.fabb33e2.css",
+    "main.js": "/antonio-carrizosa/e-commerce-devf/static/js/main.326e81ca.js",
+    "index.html": "/antonio-carrizosa/e-commerce-devf/index.html",
+    "main.fabb33e2.css.map": "/antonio-carrizosa/e-commerce-devf/static/css/main.fabb33e2.css.map",
+    "main.326e81ca.js.map": "/antonio-carrizosa/e-commerce-devf/static/js/main.326e81ca.js.map"
   },
   "entrypoints": [
     "static/css/main.fabb33e2.css",
